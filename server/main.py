@@ -48,6 +48,9 @@ allowed_origins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
+    "https://lifecure.org.in",
+    "https://www.lifecure.org.in",
+    "https://ai-triage-app-psi.vercel.app",
     FRONTEND_URL,
 ]
 if os.environ.get("RAILWAY_PUBLIC_DOMAIN"):
