@@ -14,9 +14,11 @@ DATABASE_URL = os.environ.get(
     os.environ.get("MYSQL_URL", "sqlite:///./mediflow_dev.db")
 )
 
-# SQLAlchemy needs mysql+pymysql:// instead of mysql://
+# SQLAlchemy needs specific dialect adjustments
 if DATABASE_URL.startswith("mysql://"):
     DATABASE_URL = DATABASE_URL.replace("mysql://", "mysql+pymysql://", 1)
+elif DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 engine = create_engine(
     DATABASE_URL,
