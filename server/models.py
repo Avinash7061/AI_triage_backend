@@ -98,7 +98,7 @@ class PatientRecord(Base):
     symptoms = Column(JSON, nullable=True)
     triage_category = Column(String(20), nullable=True)  # Red, Orange, Yellow, White
     room_number = Column(String(50), nullable=True)
-    status = Column(String(20), default="admitted")  # admitted, discharged, transferred
+    status = Column(String(20), default="admitted", index=True)  # admitted, discharged, transferred
     notes = Column(Text, nullable=True)
     admitted_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     discharged_at = Column(DateTime, nullable=True)
